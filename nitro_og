@@ -17,18 +17,8 @@
       padding: 0;
     }
     @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-
-    /* Reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
     nav {
       background-color: #002f1a;
       padding: 1rem 2rem;
@@ -45,7 +35,6 @@
     nav ul li a { text-decoration: none; color: #ccffcc; font-weight: bold; transition: color 0.3s; }
     nav ul li a:hover, nav ul li a.active { color: #00ff90; }
     .nav-toggle { display: none; font-size: 1.5rem; color: #ccffcc; cursor: pointer; }
-
     header, .features, .tokenomics, .roadmap, .buy-dex, .chart-embed, .tweets-embed, .faq, .disclaimer, .footer {
       padding: 2rem;
       text-align: center;
@@ -56,23 +45,19 @@
       max-width: 800px;
     }
     header { background-color: rgba(0,31,16,0.8); border-bottom: 2px solid #00ff90; }
-    .main-img { display: block; margin: 0 auto; width: 300px; max-width: 80%; animation: float 4s ease-in-out infinite; }
+    .main-img { display: none; }
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
     ul { list-style: none; padding: 0; }
     ul li::before { content: "✔️ "; margin-right: 0.5rem; color: #88ff88; }
     .buy-button { padding: 1rem 2rem; background-color: #00ff90; color: #001f10; border: none; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background-color 0.3s, transform 0.3s; }
     .buy-button:hover { background-color: #66ffcc; transform: scale(1.05); }
     iframe { border: none; width: 100%; height: 500px; border-radius: 12px; box-shadow: 0 0 10px #00ff90; }
-
     .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(0,31,16,0.9); color: #ccffcc; padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 200; }
     .cookie-button { background-color: #00ff90; color: #001f10; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background-color 0.3s; }
     .cookie-button:hover { background-color: #66ffcc; }
-
     #back-to-top { position: fixed; bottom: 2rem; right: 2rem; background-color: #00ff90; color: #001f10; border: none; border-radius: 50%; width: 3rem; height: 3rem; display: none; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 0 10px #00ff90; z-index: 150; transition: background-color 0.3s; }
     #back-to-top:hover { background-color: #66ffcc; }
     .footer { background-color: #001f10; border-top: 1px solid #00ff90; }
-
     @media (max-width: 768px) {
       .nav-toggle { display: block; }
       nav ul { display: none; flex-direction: column; background-color: #002f1a; position: absolute; top: 100%; left: 0; width: 100%; }
@@ -95,103 +80,97 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </nav>
-
   <header id="top" class="reveal">
-    <img src="/mnt/data/IMG_0780.jpg" alt="Nitro OG frog logo" class="main-img">
     <h2>Welcome to Nitro OG</h2>
     <p>The most explosive meme coin on Solana. Powered by community. Driven by vibes.</p>
   </header>
 
-  <div class="features reveal" id="features" role="region" aria-labelledby="features-title">
-    <h2 id="features-title">Features</h2>
+  <section id="features" class="features reveal">
+    <h2>Features</h2>
     <ul>
-      <li>Fast and cheap transactions via Solana</li>
-      <li>Fully community-owned and operated</li>
-      <li>Explosive meme culture and virality</li>
+      <li>Community-first tokenomics</li>
+      <li>Fully decentralized</li>
+      <li>Strong meme culture and branding</li>
     </ul>
-  </div>
-  <div class="tokenomics reveal" id="tokenomics" role="region" aria-labelledby="tokenomics-title">
-    <h2 id="tokenomics-title">Tokenomics</h2>
-    <ul>
-      <li>Supply: 1,000,000,000 $NITRO</li>
-      <li>No presale, no team allocation</li>
-      <li>100% of liquidity burned</li>
-    </ul>
-  </div>
-  <div class="roadmap reveal" id="roadmap" role="region" aria-labelledby="roadmap-title">
-    <h2 id="roadmap-title">Roadmap</h2>
-    <ul>
-      <li>Phase 1: Launch & community growth</li>
-      <li>Phase 2: Listings on DEX tools & coin trackers</li>
-      <li>Phase 3: Memes, marketing, and partnerships</li>
-    </ul>
-  </div>
-  <div class="buy-dex reveal" id="buy" role="region" aria-labelledby="buy-title">
-    <h2 id="buy-title">Buy on DEX</h2>
-    <a href="https://dexscreener.com/solana/d9v9b6kxfn9mswdnhp68frtzja5xb9gols8" target="_blank" class="buy-button" aria-label="Buy Nitro OG on DEXscreener">Buy on Dexscreener</a>
-  </div>
-  <div class="chart-embed reveal" id="chart" role="region" aria-labelledby="chart-title">
-    <h2 id="chart-title">Live Chart</h2>
-    <iframe src="https://dexscreener.com/solana/d9v9b6kxfn9mswdnhp68frtzja5xb9gols8?embed=1" title="Live Nitro OG token price chart"></iframe>
-  </div>
-  <div class="tweets-embed reveal" id="tweets" role="region" aria-labelledby="tweets-title">
-    <h2 id="tweets-title">Community Tweets</h2>
-    <a class="twitter-timeline" data-height="600" data-theme="dark" href="https://twitter.com/nitrofrogog" aria-label="Latest tweets from Nitro Frog OG">Tweets by NitroFrogOG</a>
-    <script async src="https://platform.twitter.com/widgets.js"></script>
-  </div>
-  <div class="faq reveal" id="faq" role="region" aria-labelledby="faq-title">
-    <h2 id="faq-title">FAQ</h2>
-    <ul>
-      <li><strong>What is Nitro OG?</strong><br>A meme coin on Solana powered by community and high-octane vibes.</li>
-      <li><strong>Where can I buy Nitro?</strong><br>You can buy Nitro on Solana DEXs like Raydium and track it on Dexscreener.</li>
-      <li><strong>Is there a team?</strong><br>No centralized team. Nitro is 100% community-driven.</li>
-      <li><strong>Is Nitro safe?</strong><br>Liquidity is burned and ownership is renounced. Engage at your own risk.</li>
-    </ul>
-  </div>
+  </section>
 
-  <div class="cookie-banner reveal" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent banner">
-    <p>We use cookies to improve your experience. By continuing, you agree to our <a href="#" style="color:#00ff90;" aria-label="Privacy Policy">Privacy Policy</a>.</p>
-    <button class="cookie-button" id="accept-cookies" aria-label="Accept cookies">Accept</button>
+  <section id="tokenomics" class="tokenomics reveal">
+    <h2>Tokenomics</h2>
+    <p>Total Supply: 1,000,000,000 $NITRO</p>
+    <ul>
+      <li>50% Airdropped to community</li>
+      <li>30% Liquidity Pool</li>
+      <li>10% Marketing</li>
+      <li>10% Development</li>
+    </ul>
+  </section>
+
+  <section id="roadmap" class="roadmap reveal">
+    <h2>Roadmap</h2>
+    <ul>
+      <li>Phase 1: Token Launch & Community Growth</li>
+      <li>Phase 2: CEX Listings & Partnerships</li>
+      <li>Phase 3: NFT Integration & DAO</li>
+    </ul>
+  </section>
+
+  <section id="buy" class="buy-dex reveal">
+    <h2>Buy $NITRO</h2>
+    <p>Get $NITRO now on Raydium or Jupiter Aggregator</p>
+    <a href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=YOUR_TOKEN_ADDRESS" class="buy-button" target="_blank" rel="noopener noreferrer">Buy on Raydium</a>
+  </section>
+
+  <section id="chart" class="chart-embed reveal">
+    <h2>Live Chart</h2>
+    <iframe src="https://dexscreener.com/solana/YOUR_TOKEN_PAIR" title="Live Token Chart"></iframe>
+  </section>
+
+  <section id="tweets" class="tweets-embed reveal">
+    <h2>Latest Tweets</h2>
+    <blockquote class="twitter-tweet"><a href="https://twitter.com/NitroOG"></a></blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </section>
+
+  <section id="faq" class="faq reveal">
+    <h2>Frequently Asked Questions</h2>
+    <ul>
+      <li><strong>What is Nitro OG?</strong> A meme coin built for the Solana community.</li>
+      <li><strong>How do I buy?</strong> Use Raydium or Jupiter to swap for $NITRO.</li>
+      <li><strong>Is it safe?</strong> Yes, with decentralized and transparent tokenomics.</li>
+    </ul>
+  </section>
+
+  <footer class="footer reveal">
+    <p>&copy; 2025 Nitro OG. All rights reserved.</p>
+    <p>Powered by community. Follow us on <a href="https://twitter.com/NitroOG" target="_blank">Twitter</a>.</p>
+  </footer>
+
+  <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"><i class="fas fa-arrow-up"></i></button>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <span>This website uses cookies to ensure the best experience.</span>
+    <button class="cookie-button" onclick="document.getElementById('cookie-banner').style.display='none'">Got it!</button>
   </div>
-  <button id="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
-  <div class="disclaimer reveal" role="contentinfo">
-    Disclaimer: Nitro is a community-driven meme coin and should not be considered as financial or investment advice. Nitro does not guarantee any returns and participation is entirely voluntary.
-  </div>
-  <div class="footer reveal" role="contentinfo">
-    <nav aria-label="Legal">
-      <a href="privacy.html" style="color:#00ff90; margin-right:1rem;">Privacy Policy</a>
-      <a href="terms.html" style="color:#00ff90;">Terms & Conditions</a>
-    </nav>&copy; 2025 Nitro OG. All rights reserved.</div>
 
   <script>
-    // Mobile nav toggle
-    document.getElementById('nav-toggle').addEventListener('click', () => document.getElementById('nav-menu').classList.toggle('show'));
-    // Cookie Banner
-    document.getElementById('accept-cookies').addEventListener('click', () => { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('cookiesAccepted', 'true'); });
-    window.addEventListener('load', () => { if(localStorage.getItem('cookiesAccepted') === 'true') document.getElementById('cookie-banner').style.display = 'none'; });
-    // Back to Top Button
-    const backToTopBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => { backToTopBtn.style.display = window.pageYOffset > 300 ? 'flex' : 'none'; });
-    backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    // Scroll Spy
-    const sections = document.querySelectorAll('[role="region"], header');
-    const navLinks = document.querySelectorAll('nav ul li a');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => navMenu.classList.toggle('show'));
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      for (let el of reveals) {
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+        if (revealTop < windowHeight - 100) el.classList.add('active');
+      }
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    const backToTop = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => { const sectionTop = sec.offsetTop - 100; if (pageYOffset >= sectionTop) current = sec.getAttribute('id'); });
-      navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === '#' + current) link.classList.add('active'); });
+      backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
-    // Reveal on Scroll
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
+
